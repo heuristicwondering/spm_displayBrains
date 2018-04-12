@@ -101,7 +101,7 @@ function [ ] = displayResultsV8(varargin)
 % reorderableListbox by Erik Koopmans. See:
 % https://www.mathworks.com/matlabcentral/fileexchange/37642-reorderable-listbox
 [ scriptpath, ~ ] = fileparts( mfilename('fullpath' ));
-addpath( fullfile( scriptpath, '/reorderableListbox_1.1.1' ) );
+addpath( fullfile( scriptpath, '/reorderableListbox' ) );
 
 % global variables are mainly necessary due to use of callbacks.
 % to do: replace with getter/setter functions that use 'persistent'?
