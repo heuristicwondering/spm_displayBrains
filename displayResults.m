@@ -565,7 +565,7 @@ function xSPMarr = createxSPMarr(paramSegments)
     % Creating a list (column vectors) of indices to create combinations of
     % parameter specifications.
     paramSetLengths = createVecs(paramSegments);    
-    paramSetInd = combvec(paramSetLengths{1:end});
+    paramSetInd = combvecPrivate(paramSetLengths);
     
     % Loop through each index combination
     for j = 1:size(paramSetInd, 2)
@@ -592,4 +592,14 @@ function vargout = createVecs(paramSegments)
     for i = 1:numel(paramSegments)
        vargout{i} = 1:numel(paramSegments{i}); 
     end
+end
+
+function result = combvecPrivate(elements)
+    % Solution taken from stewpend0us in 
+    % https://www.mathworks.com/matlabcentral/answers/98191-how-can-i-obtain-all-possible-combinations-of-given-vectors-in-matlab#answer_252633
+    combinations = cell(1, numel(elements)); %set up the varargout result
+    [combinations{:}] = ndgrid(elements{:});
+    combinations = cellfun(@(x) x(:), combinations,'uniformoutput',false); %there may be a better way to do this
+    result = [combinations{:}]; % NumberOfCombinations by N matrix. Each row is unique.
+
 end
