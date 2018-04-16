@@ -3,4 +3,6 @@ SPM (Statistical Parametric Mapping) function to display many first and second l
 
 To use, make sure displayBrains is on your matlab path. Examples of how to use contained in runDisplayResults.m
 
+This code is in alpha, next rewrite will involve substantial revisions and incorporation as an SPM toolbox.
+
 Email questions regarding this code to heuristicwondering AT gmail DOT com
