@@ -140,7 +140,7 @@ mfDRListfig = figure( 'Name', 'Saved Brains', 'Position', [50 200 1500 700], 'To
 % create the reorderableListbox
 mfDRListCon = reorderableListbox( mfDRListfig, ...
                     'Units', 'normalized', ...
-                    'Position', [0 0.2 1 0.8], ...
+                    'Position', [0 0.2 1.2 0.8], ...
                     'Callback', @listboxCallback, ...
                     'DragOverCallback', @listboxDropCallback );
 saveButton = uicontrol( mfDRListfig, 'String', 'save', ...
@@ -507,7 +507,12 @@ function [] = saveCurrentFigure()
     curVal = get( mfDRListCon, 'string' );
     
     curPath = strsplit( curMat.folder, mfDRFileBase );
-    curPath = curPath{2};
+    
+    if numel( curPath ) > 1
+        curPath = curPath{2};
+    else
+        curPath = curPath{1};
+    end
     
     tempRow = [tempRow ' / ' curPath];
     
